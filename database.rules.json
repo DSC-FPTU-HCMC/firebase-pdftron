@@ -1,0 +1,15 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    "annotations": {
+      "$annotationId": {
+        ".write": "auth.uid === newData.child('authorId').val() || auth.uid === data.child('authorId').val() || auth.uid === newData.child('parentAuthorId').val() || auth.uid === data.child('parentAuthorId').val()"
+      }
+    },
+    "authors": {
+      "$authorId": {
+        ".write": "auth.uid === $authorId"
+      }
+    }
+  }
+}
